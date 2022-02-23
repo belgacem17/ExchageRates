@@ -1,0 +1,56 @@
+﻿@model ExchageRates.Views.ViewerModels.ExchangeView
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+ 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Exchange Name
+            </th>
+            <th>
+                Date  Exchange
+            </th>
+            <th>
+                Exchange Rates
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Exchanges)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExchangeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateExchange)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExchangeRates)
+                </td>
+                @*<td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h1>Average EUR : </h1> <p>@Model.MoyExchangeEUR</p>
+<h1>Average EGR:</h1> <p>@Model.MoyExchangeEUR</p>
+<h1>Calculate  exponential moving average  </h1> <p style="color:red;font-size:30px">i not understand</p>
+<p>*************************Compare OpenExchangeRates and NBS***********************************</p>
+
+<h1>Average USD :</h1> <p>@Model.MoyExchangeKursUSD</p>
+<h1>Average GPB :</h1> <p>@Model.MoyExchangeKursGBP</p>
+<h1>Average EUR :</h1> <p>@Model.MoyExchangeKursEUR</p>
+
